@@ -1,13 +1,13 @@
 Summary:	X.org video driver for SiS 671 video chips
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla układów graficznych SiS 671
 Name:		xorg-driver-video-sis-imedia
-Version:	20080630
-Release:	0.1
+Version:	20090111
+Release:	2
 License:	MIT
 Group:		X11/Applications
-Source0:	http://www.linuxconsulting.ro/xorg-drivers/src/xf86-video-sis-imedia.tgz
-# Source0-md5:	0d1a2504af6580236f5fee2d7cfaf3a4
-URL:		http://www.linuxconsulting.ro/xorg-drivers/
+Source0:        http://beauty.ant.gliwice.pl/bugs/xf86-video-sis-imedia-fc9.tar.bz2
+# Source0-md5:	031e80c62dd1e526205d4d240b6049eb
+URL:		http://forums.fedoraforum.org/showthread.php?t=195483
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -15,6 +15,7 @@ BuildRequires:	libdrm-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
+BuildRequires:	xorg-lib-libpciaccess-devel
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
@@ -47,7 +48,10 @@ wykryc uklad.
 
 
 %prep
-%setup -q -n xf86-video-sis-imedia
+%setup -q -n xf86-video-sis-imedia-fc9
+# https://bugs.freedesktop.org/show_bug.cgi?id=18304
+sed -i -e 's|#define.*SIS_USE_BIOS_SCRATCH.*|#undef SIS_USE_BIOS_SCRATCH|g' src/sis.h
+
 
 %build
 %{__libtoolize}
