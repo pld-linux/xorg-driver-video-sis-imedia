@@ -2,7 +2,7 @@ Summary:	X.org video driver for SiS 671 video chips
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla układów graficznych SiS 671
 Name:		xorg-driver-video-sis-imedia
 Version:	20090111
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Applications
 Source0:        http://beauty.ant.gliwice.pl/bugs/xf86-video-sis-imedia-fc9.tar.bz2
