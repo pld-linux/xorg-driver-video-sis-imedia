@@ -2,7 +2,7 @@ Summary:	X.org video driver for SiS 671 video chips
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla układów graficznych SiS 671
 Name:		xorg-driver-video-sis-imedia
 Version:	20090111
-Release:	4
+Release:	5
 License:	MIT
 Group:		X11/Applications
 Source0:        http://beauty.ant.gliwice.pl/bugs/xf86-video-sis-imedia-fc9.tar.bz2
@@ -27,7 +27,8 @@ BuildRequires:	xorg-proto-xf86miscproto-devel
 BuildRequires:	xorg-proto-xineramaproto-devel
 BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 1.0.99.901
-#%%requires_xorg_xserver_videodrv
+%{?requires_xorg_xserver_videodrv}
+Provides:	xorg-driver-video
 Requires:	xorg-xserver-libdri >= 1.0.99.901
 Requires:	xorg-xserver-libglx >= 1.0.99.901
 Requires:	xorg-xserver-server >= 1.0.99.901
@@ -38,7 +39,6 @@ Driver for SIS 671 found in Intel D201GLY, it fixes high resolution
 problems, adds 2D hardware acceleration and XV/XVMC support. It
 requires a kernel patch to add SIS 671 PCI ids (0x0671) and a new
 entry on sis-agp.c to detect the chipset.
-
 
 %description -l pl.UTF-8
 Sterownik obrazu X.org dla układów graficznych SiS 671. Obsługuje
